@@ -35,7 +35,9 @@ def write_review():
 
 @app.route('/review', methods=['GET'])
 def read_reviews():
-    return jsonify({'result': 'success', 'msg': '이 요청은 GET!'})
+    # mongoDB/dbsparta/reviews 에서 데이터 모두 가져오기
+    reviews = list(db.reviews.find({}, {'_id': False}))
+    return jsonify({'result': 'success', 'reviews': reviews})
 
 
 if __name__ == '__main__':
