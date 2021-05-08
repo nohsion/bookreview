@@ -24,7 +24,7 @@ def write_review():
     # 2. DB에 정보 삽입하기
     review = {
         'title': title_receive,
-        'autor': author_receive,
+        'author': author_receive,
         'review': review_receive,
     }
     db.reviews.insert_one(review)
